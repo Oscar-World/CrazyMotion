@@ -3,16 +3,30 @@ package com.example.crazymotion
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import com.example.crazymotion.databinding.ActivityApplyAnimBinding
 
 class ApplyAnim : AppCompatActivity() {
 
     val TAG = "애니메이션 적용 액티비티"
 
+    private var mbinding: ActivityApplyAnimBinding? = null
+    private val binding get() = mbinding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_apply_anim)
+//        setContentView(R.layout.activity_apply_anim)
 
+        mbinding = ActivityApplyAnimBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
+        binding.backBtnApply.setOnClickListener(View.OnClickListener {
+            finish()
+        })
+
+        binding.saveBtnApply.setOnClickListener(View.OnClickListener {
+
+        })
 
     } // onCreate()
 

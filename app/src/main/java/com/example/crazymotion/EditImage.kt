@@ -1,16 +1,37 @@
 package com.example.crazymotion
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import com.example.crazymotion.databinding.ActivityEditImageBinding
 
 class EditImage : AppCompatActivity() {
 
     val TAG = "이미지 수정 액티비티"
 
+    private var mbinding: ActivityEditImageBinding? = null
+    private val binding get() = mbinding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_image)
+//        setContentView(R.layout.activity_edit_image)
+        mbinding = ActivityEditImageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.backBtnEdit.setOnClickListener(View.OnClickListener {
+            finish()
+        })
+
+        binding.nextBtnEdit.setOnClickListener(View.OnClickListener {
+            var intent = Intent(this,ApplyAnim::class.java)
+            startActivity(intent)
+        })
+
+
+
+
     } // onCreate()
 
     override fun onStart() {
